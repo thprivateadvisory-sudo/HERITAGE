@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Cellar Héritage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  color-scheme: light only !important;
+  background: #FFFFFF !important;
+  color: #111111 !important;
+  font-family: 'EB Garamond', serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: #FFFFFF !important;
+  border-bottom: 1px solid #E8E8E8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  height: 60px;
+}
+
+.nav-logo {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #111111 !important;
+}
+
+.nav-contact {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #111111 !important;
+  text-decoration: none;
+}
+
+/* HERO */
+.hero {
+  padding-top: 60px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-left: 32px;
+  padding-right: 32px;
+  border-bottom: 1px solid #E8E8E8;
+}
+
+.hero-surtitre {
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #999999;
+  margin-bottom: 48px;
+}
+
+.hero-titre {
+  font-size: clamp(38px, 6vw, 72px);
+  font-weight: 400;
+  line-height: 1.12;
+  color: #111111 !important;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 56px;
+}
+
+.hero-titre em {
+  font-style: italic;
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+
+.hero-phrase {
+  font-size: clamp(16px, 2vw, 20px);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #444444;
+  max-width: 520px;
+  margin: 0 auto 64px;
+}
+
+.hero-bas {
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #AAAAAA;
+}
+
+/* SECTIONS */
+.section {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 100px 32px;
+  border-bottom: 1px solid #E8E8E8;
+  text-align: center;
+}
+
+.section-label {
+  font-size: 9px;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: #AAAAAA;
+  margin-bottom: 48px;
+  display: block;
+}
+
+.section-titre {
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 400;
+  line-height: 1.25;
+  color: #111111 !important;
+  margin-bottom: 40px;
+  letter-spacing: 0.01em;
+}
+
+.section-titre em {
+  font-style: italic;
+}
+
+.section-texte {
+  font-size: clamp(15px, 1.8vw, 18px);
+  font-weight: 400;
+  line-height: 1.85;
+  color: #555555;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.section-texte + .section-texte {
+  margin-top: 24px;
+}
+
+/* LISTE */
+.liste {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 32px 100px;
+  border-bottom: 1px solid #E8E8E8;
+}
+
+.liste-item {
+  display: flex;
+  gap: 40px;
+  padding: 40px 0;
+  border-top: 1px solid #E8E8E8;
+  align-items: baseline;
+}
+
+.liste-item:last-child {
+  border-bottom: 1px solid #E8E8E8;
+}
+
+.liste-num {
+  font-size: 12px;
+  font-style: italic;
+  color: #AAAAAA;
+  flex-shrink: 0;
+  width: 20px;
+  padding-top: 2px;
+}
+
+.liste-corps {}
+
+.liste-titre {
+  font-size: clamp(17px, 2vw, 21px);
+  font-weight: 400;
+  color: #111111 !important;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.liste-texte {
+  font-size: clamp(14px, 1.6vw, 16px);
+  font-style: italic;
+  color: #777777;
+  line-height: 1.8;
+}
+
+/* CONTACT */
+.contact {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 100px 32px;
+  text-align: center;
+  border-bottom: 1px solid #E8E8E8;
+}
+
+.contact-titre {
+  font-size: clamp(22px, 3vw, 34px);
+  font-weight: 400;
+  font-style: italic;
+  color: #111111 !important;
+  line-height: 1.4;
+  margin-bottom: 48px;
+}
+
+.contact-note {
+  font-size: clamp(14px, 1.6vw, 16px);
+  color: #777777;
+  line-height: 1.85;
+  margin-bottom: 56px;
+  font-style: italic;
+}
+
+.contact-liens {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.contact-lien {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-top: 1px solid #E8E8E8;
+  text-decoration: none;
+  color: #111111 !important;
+}
+
+.contact-lien:last-child {
+  border-bottom: 1px solid #E8E8E8;
+}
+
+.contact-lien-label {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.contact-lien-fl {
+  font-size: 18px;
+  font-style: italic;
+  color: #AAAAAA;
+}
+
+/* FOOTER */
+footer {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 40px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-nom {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #AAAAAA;
+}
+
+.footer-conf {
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #CCCCCC;
+}
+
+@media (max-width: 640px) {
+  nav { padding: 0 24px; }
+  .hero { padding-left: 24px; padding-right: 24px; }
+  .section { padding: 72px 24px; }
+  .liste { padding: 0 24px 72px; }
+  .contact { padding: 72px 24px; }
+  footer { padding: 32px 24px; flex-direction: column; gap: 12px; text-align: center; }
+  .liste-item { gap: 24px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; }
+}
+</style>
+<meta name="color-scheme" content="light only"/>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">Cellar Héritage</span>
+  <a href="#contact" class="nav-contact">Contact</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-surtitre">Maison privée · Fondée en 2026 · Paris</p>
+  <h1 class="hero-titre">
+    Cellar<br>
+    <em>Héritage</em>
+  </h1>
+  <p class="hero-phrase">
+    Là où d'autres vendent des bouteilles,<br>
+    nous construisons des héritages.
+  </p>
+  <p class="hero-bas">Sur recommandation uniquement</p>
+</section>
+
+<!-- CONVICTION -->
+<section class="section">
+  <span class="section-label">Notre conviction</span>
+  <h2 class="section-titre">
+    Le vin de prestige n'est pas un plaisir de table.<br>
+    C'est un actif <em>vivant, transmissible,</em><br>
+    porteur d'histoire familiale.
+  </h2>
+  <p class="section-texte">
+    Cellar Héritage est la première maison privée à traiter la cave comme un portefeuille patrimonial — avec la rigueur d'un family office et la sensibilité d'une maison de haute couture. Nous accompagnons des familles à haute valeur nette dans la constitution, la valorisation et la transmission d'une cave pensée sur plusieurs décennies.
+  </p>
+</section>
+
+<!-- APPROCHE -->
+<div class="liste">
+  <div class="liste-item">
+    <span class="liste-num">i.</span>
+    <div class="liste-corps">
+      <h3 class="liste-titre">L'accès aux vins introuvables</h3>
+      <p class="liste-texte">DRC, Pétrus, Henri Jayer, Leroy. Ces vins ne s'achètent pas — ils s'obtiennent, via des relations vignerons construites dans le temps, non transférables et non reproductibles.</p>
+    </div>
+  </div>
+  <div class="liste-item">
+    <span class="liste-num">ii.</span>
+    <div class="liste-corps">
+      <h3 class="liste-titre">Une stratégie sur vingt à trente ans</h3>
+      <p class="liste-texte">Chaque acquisition est calée sur un moment de vie — une naissance, une majorité, une transmission. Nous raisonnons en générations. Jamais en millésimes.</p>
+    </div>
+  </div>
+  <div class="liste-item">
+    <span class="liste-num">iii.</span>
+    <div class="liste-corps">
+      <h3 class="liste-titre">La transmission comme seul horizon</h3>
+      <p class="liste-texte">Documentation complète, valorisation annuelle avec expert agréé, intégration dans la stratégie successorale. La cave que nous gérons doit survivre à son propriétaire et raconter son histoire.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PHILOSOPHIE -->
+<section class="section">
+  <span class="section-label">La philosophie de la maison</span>
+  <h2 class="section-titre">
+    Dix familles.<br>
+    <em>Pas une de plus.</em>
+  </h2>
+  <p class="section-texte">
+    Ce plafond n'est pas un argument marketing. C'est une condition de la qualité de service que nous nous engageons à maintenir. Chaque famille sous gestion reçoit une attention totale, une relation directe avec le fondateur, et un accès sans intermédiaire aux vins les plus rares au monde.
+  </p>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <h2 class="contact-titre">
+    Une conversation commence<br>
+    toujours par une recommandation.
+  </h2>
+  <p class="contact-note">
+    Cellar Héritage n'accepte pas de sollicitations spontanées.<br>
+    Si vous êtes ici, c'est que quelqu'un vous a orienté vers nous.
+  </p>
+  <div class="contact-liens">
+    <a href="mailto:th@cellarheritage.fr" class="contact-lien">
+      <span class="contact-lien-label">Écrire à Thomas Hoenig</span>
+      <span class="contact-lien-fl">→</span>
+    </a>
+    <a href="tel:+33600000000" class="contact-lien">
+      <span class="contact-lien-label">Ligne directe</span>
+      <span class="contact-lien-fl">→</span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-nom">Cellar Héritage</span>
+  <span class="footer-conf">Confidentiel · Paris · 2026</span>
+</footer>
+
+</body>
+</html>
