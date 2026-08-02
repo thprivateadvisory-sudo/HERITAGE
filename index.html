@@ -26,37 +26,53 @@ nav {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  background: #FFFFFF !important;
-  border-bottom: 1px solid #E8E8E8;
+  background: rgba(255,255,255,0.96) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid #EBEBEB;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 48px;
-  height: 60px;
+  height: 64px;
 }
 
-.nav-logo {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 11px;
-  font-weight: 300;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: #111111 !important;
+.nav-logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+.nav-logo-link:hover { opacity: 0.72; }
+
+.nav-logo-img {
+  height: 44px;
+  width: auto;
+  display: block;
+  mix-blend-mode: multiply;
 }
 
 .nav-contact {
   font-family: 'Josefin Sans', sans-serif;
   font-size: 9px;
   font-weight: 100;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
   color: #111111 !important;
   text-decoration: none;
+  transition: color 0.3s ease, letter-spacing 0.3s ease;
+}
+
+.nav-contact:hover {
+  color: #B8976A !important;
+  letter-spacing: 0.38em;
 }
 
 /* HERO */
 .hero {
-  padding-top: 60px;
+  padding-top: 64px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -65,69 +81,81 @@ nav {
   text-align: center;
   padding-left: 32px;
   padding-right: 32px;
-  border-bottom: 1px solid #E8E8E8;
+  border-bottom: 1px solid #EBEBEB;
+  position: relative;
 }
 
 .hero-surtitre {
   font-family: 'Josefin Sans', sans-serif;
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 300;
-  letter-spacing: 0.38em;
+  letter-spacing: 0.44em;
   text-transform: uppercase;
-  color: #888888;
-  margin-bottom: 40px;
+  color: #AAAAAA;
+  margin-bottom: 52px;
+  animation: fadeUp 1.2s ease both;
+  animation-delay: 0.1s;
 }
 
 .hero-regle {
-  width: 40px;
-  height: 1px;
-  background: #B8976A;
-  margin: 0 auto 40px;
+  width: 1px;
+  height: 52px;
+  background: linear-gradient(to bottom, transparent, #C9A97A, transparent);
+  margin: 0 auto 52px;
+  animation: fadeUp 1.2s ease both;
+  animation-delay: 0.25s;
 }
 
-.hero-titre {
-  font-size: clamp(48px, 7.5vw, 96px);
-  font-weight: 300;
-  line-height: 1.08;
-  color: #111111 !important;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  margin-bottom: 60px;
-  font-feature-settings: "liga" 1, "dlig" 1, "swsh" 1;
+.hero-logo-wrap {
+  animation: fadeUp 1.4s ease both;
+  animation-delay: 0.4s;
+  margin-bottom: 56px;
 }
 
-.hero-titre em {
-  font-weight: 300;
-  font-style: italic;
-  letter-spacing: 0.06em;
-  text-transform: none;
+.hero-logo-img {
+  width: clamp(180px, 22vw, 260px);
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  mix-blend-mode: multiply;
 }
 
 .hero-phrase {
-  font-size: clamp(18px, 2.2vw, 23px);
+  font-size: clamp(17px, 2vw, 22px);
   font-style: italic;
   font-weight: 300;
-  line-height: 1.75;
-  color: #555555;
-  max-width: 520px;
+  line-height: 1.85;
+  color: #666666;
+  max-width: 480px;
   margin: 0 auto 72px;
+  animation: fadeUp 1.2s ease both;
+  animation-delay: 0.65s;
 }
 
 .hero-bas {
   font-family: 'Josefin Sans', sans-serif;
-  font-size: 10px;
-  font-weight: 300;
-  letter-spacing: 0.34em;
+  font-size: 9px;
+  font-weight: 100;
+  letter-spacing: 0.42em;
   text-transform: uppercase;
-  color: #888888;
+  color: #B8976A;
+  animation: fadeUp 1.2s ease both;
+  animation-delay: 0.8s;
+}
+
+.hero-bas::before,
+.hero-bas::after {
+  content: '—';
+  margin: 0 14px;
+  opacity: 0.4;
 }
 
 /* SECTIONS */
 .section {
   max-width: 680px;
   margin: 0 auto;
-  padding: 100px 32px;
-  border-bottom: 1px solid #E8E8E8;
+  padding: 110px 32px;
+  border-bottom: 1px solid #EBEBEB;
   text-align: center;
 }
 
@@ -135,19 +163,19 @@ nav {
   font-family: 'Josefin Sans', sans-serif;
   font-size: 9px;
   font-weight: 300;
-  letter-spacing: 0.4em;
+  letter-spacing: 0.44em;
   text-transform: uppercase;
   color: #B8976A;
-  margin-bottom: 52px;
+  margin-bottom: 56px;
   display: block;
 }
 
 .section-titre {
   font-size: clamp(26px, 3.2vw, 42px);
   font-weight: 300;
-  line-height: 1.3;
+  line-height: 1.35;
   color: #111111 !important;
-  margin-bottom: 44px;
+  margin-bottom: 48px;
   letter-spacing: 0.01em;
   font-feature-settings: "liga" 1, "dlig" 1;
 }
@@ -158,10 +186,10 @@ nav {
 }
 
 .section-texte {
-  font-size: clamp(16px, 1.9vw, 19px);
+  font-size: clamp(16px, 1.85vw, 19px);
   font-weight: 400;
-  line-height: 1.9;
-  color: #555555;
+  line-height: 1.95;
+  color: #585858;
   text-align: justify;
   hyphens: auto;
 }
@@ -174,27 +202,27 @@ nav {
 .liste {
   max-width: 680px;
   margin: 0 auto;
-  padding: 0 32px 100px;
-  border-bottom: 1px solid #E8E8E8;
+  padding: 0 32px 110px;
+  border-bottom: 1px solid #EBEBEB;
 }
 
 .liste-item {
   display: flex;
   gap: 40px;
-  padding: 40px 0;
-  border-top: 1px solid #E8E8E8;
+  padding: 44px 0;
+  border-top: 1px solid #EBEBEB;
   align-items: baseline;
 }
 
 .liste-item:last-child {
-  border-bottom: 1px solid #E8E8E8;
+  border-bottom: 1px solid #EBEBEB;
 }
 
 .liste-num {
   font-size: 14px;
   font-style: italic;
   font-weight: 300;
-  color: #B8976A;
+  color: #C9A97A;
   flex-shrink: 0;
   width: 20px;
   padding-top: 2px;
@@ -207,7 +235,7 @@ nav {
   font-weight: 300;
   color: #111111 !important;
   margin-bottom: 14px;
-  line-height: 1.25;
+  line-height: 1.3;
   letter-spacing: 0.01em;
 }
 
@@ -215,17 +243,17 @@ nav {
   font-size: clamp(15px, 1.7vw, 17px);
   font-style: italic;
   font-weight: 300;
-  color: #777777;
-  line-height: 1.85;
+  color: #808080;
+  line-height: 1.9;
 }
 
 /* CONTACT */
 .contact {
   max-width: 680px;
   margin: 0 auto;
-  padding: 100px 32px;
+  padding: 110px 32px;
   text-align: center;
-  border-bottom: 1px solid #E8E8E8;
+  border-bottom: 1px solid #EBEBEB;
 }
 
 .contact-titre {
@@ -233,16 +261,16 @@ nav {
   font-weight: 300;
   font-style: italic;
   color: #111111 !important;
-  line-height: 1.45;
-  margin-bottom: 48px;
+  line-height: 1.5;
+  margin-bottom: 52px;
   font-feature-settings: "liga" 1, "dlig" 1;
 }
 
 .contact-note {
   font-size: clamp(15px, 1.7vw, 17px);
-  color: #777777;
-  line-height: 1.9;
-  margin-bottom: 56px;
+  color: #888888;
+  line-height: 1.95;
+  margin-bottom: 60px;
   font-style: italic;
   font-weight: 300;
 }
@@ -259,15 +287,19 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 22px 0;
-  border-top: 1px solid #E8E8E8;
+  padding: 24px 0;
+  border-top: 1px solid #EBEBEB;
   text-decoration: none;
   color: #111111 !important;
+  transition: color 0.3s ease;
 }
 
 .contact-lien:last-child {
-  border-bottom: 1px solid #E8E8E8;
+  border-bottom: 1px solid #EBEBEB;
 }
+
+.contact-lien:hover .contact-lien-label { letter-spacing: 0.34em; }
+.contact-lien:hover .contact-lien-fl { transform: translateX(4px); }
 
 .contact-lien-label {
   font-family: 'Josefin Sans', sans-serif;
@@ -275,6 +307,7 @@ nav {
   font-weight: 300;
   letter-spacing: 0.28em;
   text-transform: uppercase;
+  transition: letter-spacing 0.4s ease;
 }
 
 .contact-lien-fl {
@@ -282,7 +315,9 @@ nav {
   font-size: 20px;
   font-style: italic;
   font-weight: 300;
-  color: #B8976A;
+  color: #C9A97A;
+  display: inline-block;
+  transition: transform 0.3s ease;
 }
 
 /* FOOTER */
@@ -295,36 +330,47 @@ footer {
   align-items: center;
 }
 
-.footer-nom {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 9px;
-  font-weight: 300;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: #BBBBBB;
+.footer-logo {
+  display: flex;
+  align-items: center;
+}
+
+.footer-logo-img {
+  height: 28px;
+  width: auto;
+  mix-blend-mode: multiply;
+  opacity: 0.35;
 }
 
 .footer-conf {
   font-family: 'Josefin Sans', sans-serif;
   font-size: 8px;
   font-weight: 100;
-  letter-spacing: 0.26em;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: #DDDDDD;
+  color: #CCCCCC;
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @media (max-width: 640px) {
-  nav { padding: 0 24px; }
+  nav { padding: 0 24px; height: 60px; }
+  .nav-logo-img { height: 36px; }
   .hero { padding-left: 24px; padding-right: 24px; }
-  .section { padding: 72px 24px; }
-  .liste { padding: 0 24px 72px; }
-  .contact { padding: 72px 24px; }
-  footer { padding: 32px 24px; flex-direction: column; gap: 12px; text-align: center; }
+  .hero-logo-img { width: clamp(150px, 55vw, 200px); }
+  .section { padding: 80px 24px; }
+  .liste { padding: 0 24px 80px; }
   .liste-item { gap: 24px; }
+  .contact { padding: 80px 24px; }
+  footer { padding: 32px 24px; flex-direction: column; gap: 14px; text-align: center; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { transition: none !important; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
 }
 </style>
 <meta name="color-scheme" content="light only"/>
@@ -332,7 +378,9 @@ footer {
 <body>
 
 <nav>
-  <span class="nav-logo">Cellar Héritage</span>
+  <a href="#" class="nav-logo-link">
+    <img src="logo.png" alt="Cellar Héritage" class="nav-logo-img"/>
+  </a>
   <a href="#contact" class="nav-contact">Contact</a>
 </nav>
 
@@ -340,10 +388,11 @@ footer {
 <section class="hero">
   <p class="hero-surtitre">Maison privée · Fondée en 2026 · Paris</p>
   <div class="hero-regle"></div>
-  <h1 class="hero-titre">
-    Cellar<br>
-    <em>Héritage</em>
-  </h1>
+
+  <div class="hero-logo-wrap">
+    <img src="logo.png" alt="Cellar Héritage" class="hero-logo-img"/>
+  </div>
+
   <p class="hero-phrase">
     Là où d'autres vendent des bouteilles,<br>
     nous construisons des héritages.
@@ -424,7 +473,9 @@ footer {
 </section>
 
 <footer>
-  <span class="footer-nom">Cellar Héritage</span>
+  <div class="footer-logo">
+    <img src="logo.png" alt="Cellar Héritage" class="footer-logo-img"/>
+  </div>
   <span class="footer-conf">Confidentiel · Paris · 2026</span>
 </footer>
 
